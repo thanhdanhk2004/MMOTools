@@ -5,8 +5,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5039
+          "Host": "userservice",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/user/{everything}",
@@ -17,7 +17,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "authservice",
           "Port": 5255
         }
       ],
