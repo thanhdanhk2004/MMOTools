@@ -1,4 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+//Cau hinh PostgreSQL
+builder.Services.AddDbContext<DbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectedDB"))
+    .ConfigureWarnings(warnings =>
+               warnings.Ignore()); 
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
+
 
 // Add services to the container.
 
