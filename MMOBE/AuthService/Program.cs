@@ -1,4 +1,15 @@
+using AuthService.Context;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DBContextAuthService>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectedDB"))
+    .ConfigureWarnings(warnings =>
+               warnings.Ignore());
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
 
 // Add services to the container.
 
